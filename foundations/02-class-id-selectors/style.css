@@ -1,0 +1,17 @@
+.para{
+    background-color: rgb(247, 146, 163);
+    font-family: Verdana, "DejaVu Sans" ,sans-serif;
+}
+#division1{
+    font-size: 36px;
+    color: #0000ff;
+    font-weight: bold;
+}
+.divi{
+font-size: 24px;
+}
+.divi#division{
+    
+    background-color:hsl(120, 100%, 75%);
+    font-weight: bold;
+}
