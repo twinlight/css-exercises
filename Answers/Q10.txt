@@ -1,0 +1,94 @@
+
+
+CREATE TABLE Sailors (
+    sid INT PRIMARY KEY,
+    sname VARCHAR(50),
+    rating INT,
+    age INT
+);
+
+
+
+CREATE TABLE Boats (
+    bid INT PRIMARY KEY,
+    bname VARCHAR(50),
+    color VARCHAR(30)
+);
+
+CREATE TABLE Reserves (
+    sid INT,
+    bid INT,
+    day INT,
+    PRIMARY KEY (sid, bid),
+    FOREIGN KEY (sid) REFERENCES Sailors(sid),
+    FOREIGN KEY (bid) REFERENCES Boats(bid)
+);
+
+
+i.)
+
+INSERT INTO Sailors (sid, sname, rating, age) VALUES
+(1, 'John', 8, 25),
+(2, 'Alice', 7, 28),
+(3, 'Bob', 6, 22);
+
+
+
+INSERT INTO Boats (bid, bname, color) VALUES
+(101, 'Speedy', 'Red'),
+(102, 'Swift', 'yellow'),
+(103, 'Sailor', 'Blue');
+
+
+
+INSERT INTO Reserves (sid, bid, day) VALUES
+(1, 101, 5),
+(2, 102, 6),
+(3, 103, 4);
+
+
+
+ii.)
+
+SELECT s.*
+FROM Sailors s
+JOIN Reserves r ON s.sid = r.sid
+WHERE r.bid = 103;
+
+
+iii.)
+
+UPDATE Boats
+SET color = 'Green'
+WHERE bid = 102;
+
+
+iv.)
+
+SELECT DISTINCT s.sname
+FROM Sailors s
+JOIN Reserves r ON s.sid = r.sid
+JOIN Boats b ON r.bid = b.bid
+WHERE b.color IN ('Red', 'Green');
+
+
+v.)
+
+SELECT s.sname
+FROM Sailors s
+JOIN Reserves r ON s.sid = r.sid
+WHERE r.bid = 103 AND r.day = 4;
+
+
+vi.)
+
+SELECT sname
+FROM Sailors
+WHERE sname <> 'Bob';
+
+
+vii.)
+
+SELECT bname
+FROM Boats;
+

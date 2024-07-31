@@ -1,0 +1,61 @@
+
+
+CREATE TABLE Automotor (
+    chasis_number VARCHAR(20) PRIMARY KEY,
+    veh_brand VARCHAR(50),
+    veh_name VARCHAR(50),
+    veh_model VARCHAR(50),
+    veh_year INT,
+    veh_cost DECIMAL(15, 2),
+    veh_color VARCHAR(30),
+    veh_weight DECIMAL(10, 2)
+);
+
+
+
+i.)
+
+INSERT INTO Automotor (chasis_number, veh_brand, veh_name, veh_model, veh_year, veh_cost, veh_color, veh_weight)
+VALUES 
+('CH12345', 'Toyota', 'Camry', 'SE', 2021, 25000.00, 'Red', 1500.00),
+('CH12346', 'Honda', 'Accord', 'LX', 2020, 23000.00, 'Blue', 1450.00),
+('CH12347', 'Ford', 'Mustang', 'GT', 2022, 35000.00, 'Black', 1600.00),
+('CH12348', 'Chevrolet', 'Malibu', 'LT', 2019, 22000.00, 'Red', 1550.00),
+('CH12349', 'Nissan', 'Altima', 'SV', 2023, 24000.00, 'White', 1400.00);
+
+
+ii.)
+
+UPDATE Automotor
+SET veh_year = 2019
+WHERE chasis_number = 'CH12347';  -- Assuming we are changing the Ford Mustang year
+
+
+iii.)
+
+DELETE FROM Automotor
+WHERE veh_model LIKE '%i';
+
+
+iv.)
+
+SELECT SUM(veh_cost) AS total_cost
+FROM Automotor;
+
+
+v.)
+
+CREATE VIEW RedVehicles AS
+SELECT *
+FROM Automotor
+WHERE veh_color = 'Red';
+
+
+
+vi.)
+
+SELECT *
+FROM Automotor
+ORDER BY veh_brand DESC, veh_model ASC;
+
+

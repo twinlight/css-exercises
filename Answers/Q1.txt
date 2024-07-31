@@ -1,0 +1,77 @@
+i.)
+
+CREATE TABLE Emp_time (
+    Eid# Char(4) PRIMARY KEY,
+    Name VARCHAR(30),
+    Start_time TIME,
+    End_time TIME
+);
+
+INSERT INTO Emp_time  VALUES ('E101', 'Magale', '10:30:00', '18:30:00');
+INSERT INTO Emp_time  VALUES ('E102', 'Malati', '08:30:00', '14:30:00');
+INSERT INTO Emp_time  VALUES ('E103', 'Fulmaya', '09:00:00', '17:00:00');
+
+
+ii.)
+
+SELECT Eid#,Name,TIMEDIFF(End_time,Start_time) AS Total_Working_Hours
+FROM Emp_time;
+
+
+iii.)
+
+SELECT Eid#,Name,TIMEDIFF(End_time,Start_time) AS Work_Duration
+From Emp_time
+ORDER BY Work_Duration ASC;
+
+iv.)
+
+SELECT Eid#,Name,TIMEDIFF(End_time,Start_time) AS Work_Duration
+FROM Emp_time
+ORDER BY Work_Duration DESC
+LIMIT 1;
+
+
+v.)
+
+SELECT Name
+FROM Emp_time
+WHERE Name LIKE 'M%' AND TIMEDIFF(End_time,Start_time) > '07:00:00';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,38 @@
+1. Stored Procedure Without Parameters
+
+Create a Stored Procedure to Get All Employees:
+
+DELIMITER //
+
+CREATE PROCEDURE GetAllEmployees()
+BEGIN
+    SELECT * FROM Employees;
+END //
+
+DELIMITER ;
+
+
+Call the Stored Procedure:
+
+CALL GetAllEmployees();
+
+
+2. Stored Procedure With Parameters
+
+Create a Stored Procedure to Get Employees by Department:
+
+DELIMITER //
+
+CREATE PROCEDURE GetEmployeesByDepartment(IN dept_id INT)
+BEGIN
+    SELECT * FROM Employees
+    WHERE Department_ID = dept_id;
+END //
+
+DELIMITER ;
+
+
+
+Call the Stored Procedure with a Parameter:
+
+CALL GetEmployeesByDepartment(101);

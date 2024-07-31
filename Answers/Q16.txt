@@ -1,0 +1,68 @@
+Transaction Control Language (TCL) statements are used to manage transactions in a database. Transactions are sequences of operations performed as a single logical unit of work. TCL commands are used to ensure that transactions are processed reliably and maintain database integrity. The key TCL statements are COMMIT, ROLLBACK, and SAVEPOINT.
+
+1. COMMIT Statement
+
+The COMMIT statement is used to save all the changes made during the current transaction. Once a commit is issued, all changes are permanently applied to the database.
+
+Example:
+BEGIN TRANSACTION;
+
+-- Insert some records
+INSERT INTO Employees (Employee_ID, First_Name, Last_Name, Department, Salary, Hire_Date)
+VALUES (1, 'John', 'Doe', 'HR', 50000.00, '2024-07-01');
+
+INSERT INTO Employees (Employee_ID, First_Name, Last_Name, Department, Salary, Hire_Date)
+VALUES (2, 'Jane', 'Smith', 'IT', 60000.00, '2024-07-02');
+
+-- Commit the transaction
+COMMIT;
+
+
+2. ROLLBACK Statement
+
+The ROLLBACK statement is used to undo changes made during the current transaction. This will revert the database to the state it was in before the transaction began.
+
+Example:
+
+BEGIN TRANSACTION;
+
+-- Insert some records
+INSERT INTO Employees (Employee_ID, First_Name, Last_Name, Department, Salary, Hire_Date)
+VALUES (3, 'Alice', 'Johnson', 'Marketing', 55000.00, '2024-07-03');
+
+INSERT INTO Employees (Employee_ID, First_Name, Last_Name, Department, Salary, Hire_Date)
+VALUES (4, 'Bob', 'Brown', 'Finance', 70000.00, '2024-07-04');
+
+-- Rollback the transaction
+ROLLBACK;
+
+
+
+3. SAVEPOINT Statement
+The SAVEPOINT statement is used to set a point within a transaction to which you can later roll back. This allows partial rollback within a transaction.
+
+Example:
+
+BEGIN TRANSACTION;
+
+-- Insert some records
+INSERT INTO Employees (Employee_ID, First_Name, Last_Name, Department, Salary, Hire_Date)
+VALUES (5, 'Charlie', 'Davis', 'HR', 52000.00, '2024-07-05');
+
+-- Set a savepoint
+SAVEPOINT sp1;
+
+-- Make some more changes
+INSERT INTO Employees (Employee_ID, First_Name, Last_Name, Department, Salary, Hire_Date)
+VALUES (6, 'Diana', 'Evans', 'IT', 62000.00, '2024-07-06');
+
+-- Rollback to the savepoint
+ROLLBACK TO sp1;
+
+-- Commit the transaction
+COMMIT;
+
+
+
+
+Using TCL statements helps to ensure data integrity and consistency in complex transactions and is essential for handling errors and managing changes in a controlled manner.

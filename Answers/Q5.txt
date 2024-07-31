@@ -1,0 +1,97 @@
+i.)
+
+CREATE TABLE Liquors_info (
+    Serial_No INT PRIMARY KEY,
+    Liquors VARCHAR(50),
+    Start_year YEAR,
+    Bottles INT,
+    Ready_Year YEAR
+);
+
+INSERT INTO Liquors_info VALUES (1, 'Gorkha', 1997, 10, 1998);
+INSERT INTO Liquors_info VALUES (2, 'Divine Wine', 1998, 5, 2000);
+INSERT INTO Liquors_info VALUES (3, 'Old Durbar', 1997, 12, 2001);
+INSERT INTO Liquors_info VALUES (4, 'Khukhuri Rum', 1991, 10, 1992);
+INSERT INTO Liquors_info VALUES (5, 'Xing', 1994, 5, 1995);
+
+
+iii.)
+
+SELECT * FROM Liquors_info
+WHERE Ready_Year <= 2000;
+
+
+iv.)
+
+DELETE FROM Liquors_info
+WHERE Ready_Year > Start_year + 2;
+
+
+v.)
+
+CREATE VIEW Liquors_View AS
+SELECT Serial_No, Liquors, Start_year, Ready_Year
+FROM Liquors_info;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

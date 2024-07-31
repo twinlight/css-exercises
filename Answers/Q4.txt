@@ -1,0 +1,95 @@
+i.)
+
+CREATE TABLE Teacher (
+    TeacherID INT PRIMARY KEY,
+    TeacherName VARCHAR(50),
+    Office VARCHAR(50)
+);
+
+INSERT INTO Teacher VALUES (1, 'Alice', '101');
+INSERT INTO Teacher VALUES (2, 'Bob', '102');
+INSERT INTO Teacher VALUES (3, 'Charlie', '103');
+INSERT INTO Teacher VALUES(4, 'David', '101');
+INSERT INTO Teacher VALUES (5, 'Eve', '104');
+
+
+ii.)
+
+SELECT DISTINCT TeacherID, TeacherName, Office
+FROM Teacher;
+
+
+iii.)
+
+ALTER TABLE Teacher
+ADD COLUMN Gender VARCHAR(10);
+
+
+iv.)
+
+SELECT *
+FROM Teacher
+ORDER BY TeacherName;  
+
+
+v.)
+
+DELETE FROM Teacher
+WHERE Office = '101';
+
+
+
+vi.)
+
+SELECT Office, COUNT(*) AS NumberOfTeachers
+FROM Teacher
+GROUP BY Office;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

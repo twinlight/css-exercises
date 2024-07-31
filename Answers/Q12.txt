@@ -1,0 +1,52 @@
+i.)
+
+CREATE DATABASE Company;
+USE Company;
+
+
+CREATE TABLE Employees (
+    E_id INT PRIMARY KEY,
+    Fname VARCHAR(50),
+    Lname VARCHAR(50),
+    Department VARCHAR(50),
+    Salary DECIMAL(15, 2),
+    Hire_Date DATE
+);
+
+
+
+ii.)
+
+
+INSERT INTO Employees (E_id, Fname, Lname, Department, Salary, Hire_Date) VALUES
+(1, 'Ramu', 'Bashyal', 'Sales', 20000.00, '2023-08-08'),
+(2, 'Damu', 'Pandey', 'IT', 50000.00, '2022-01-01'),
+(3, 'Biru', 'B.k.', 'Sales', 40000.00, '2021-02-10'),
+(4, 'Hiru', 'Dhamala', 'HR', 35000.00, '2023-12-18'),
+(5, 'Biren', 'Khadka', 'IT', 60000.00, '2012-10-22');
+
+
+
+
+iii.)
+
+CREATE VIEW Employee_Summary AS
+SELECT E_id, Department, Hire_Date
+FROM Employees;
+
+
+
+iv.)
+
+UPDATE Employees
+SET Department = 'HR'
+WHERE Fname = 'Biren' AND Lname = 'Khadka';
+
+
+
+v.)
+
+
+DELETE FROM Employees
+WHERE Lname = 'Pandey';
+

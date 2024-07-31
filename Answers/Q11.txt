@@ -1,0 +1,63 @@
+i.)
+
+CREATE TABLE Actress_Details (
+    Players_id INT PRIMARY KEY,
+    Actress_name VARCHAR(50),
+    Debut_year INT,
+    Recent_release VARCHAR(100),
+    Actress_fee DECIMAL(15, 2)
+);
+
+
+
+
+INSERT INTO Actress_Details (Players_id, Actress_name, Debut_year, Recent_release, Actress_fee) VALUES
+(1, 'Renu', 2010, 'Samay', 400000.00),
+(2, 'Sita', 2022, 'Radha', 300000.00),
+(3, 'Geeta', 2001, 'Mato', 600000.00),
+(4, 'Amita', 1990, 'Man', 700000.00),
+(5, 'Karishma', 1989, 'Prem', 100000.00);
+
+
+
+ii.)
+
+DELETE FROM Actress_Details
+WHERE Recent_release = 'Prem';
+
+
+iii.)
+
+UPDATE Actress_Details
+SET Recent_release = 'Win the Race'
+WHERE Actress_name = 'Renu';
+
+
+
+iv.)
+
+SELECT Actress_name
+FROM Actress_Details
+WHERE Actress_fee = (SELECT MAX(Actress_fee) FROM Actress_Details);
+
+
+v.)
+
+SELECT Actress_name
+FROM Actress_Details
+WHERE Actress_name LIKE '%a';
+
+
+vi.)
+
+Example View: Actress Details with Fee Above 300,000
+
+CREATE VIEW High_Fee_Actresses AS
+SELECT * 
+FROM Actress_Details
+WHERE Actress_fee > 300000;
+
+
+
+
+

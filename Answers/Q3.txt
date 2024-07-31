@@ -1,0 +1,85 @@
+i.)
+
+CREATE TABLE tbl_emp (
+    EmpId* Char(4) PRIMARY KEY,
+    EmpName VARCHAR(50),
+    Salary DECIMAL(10, 2),
+    Date_of_join DATE,
+    Phone VARCHAR(10),
+    Department VARCHAR(50)
+);
+
+INSERT INTO tbl_emp VALUES ('E001', 'Ram', 20000, '2060-02-01', '#1234', 'Packing');
+INSERT INTO tbl_emp VALUES ('E002', 'Hari', 18000, '2065-04-01', '#5647','Cleaning'),
+INSERT INTO tbl_emp VALUES ('E004', 'Sita',15000, '2068-04-01', '#2564','Polishing');
+
+
+ii.)
+
+UPDATE tbl_emp
+SET Department = 'Marketing'
+WHERE EmpName = 'Hari';
+
+
+iii.)
+
+UPDATE tbl_emp
+SET Salary = Salary + 5000;
+
+
+iv.)
+
+SELECT *
+FROM tbl_emp
+WHERE Salary > 16000;
+
+
+v.)
+
+ALTER TABLE tbl_emp
+ADD COLUMN Address VARCHAR(100);
+
+vi.)
+
+DELETE FROM tbl_emp
+WHERE EmpName = 'Sita';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

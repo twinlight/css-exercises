@@ -1,0 +1,87 @@
+i.)
+
+CREATE TABLE Vehicle (
+    veh_number INT PRIMARY KEY,
+    veh_brand VARCHAR(50),
+    veh_year YEAR,
+    veh_mileage INT,
+    veh_price DECIMAL(10, 2)
+);
+
+INSERT INTO Vehicle VALUES (1, 'Toyota', 2020, 15000, 25000.00);
+INSERT INTO Vehicle VALUES (2, 'Honda', 2019, 20000, 22000.00);
+INSERT INTO Vehicle VALUES (3, 'Ford', 2018, 30000, 18000.00);
+INSERT INTO Vehicle VALUES (4, 'Tesla', 2021, 10000, 50000.00);
+INSERT INTO Vehicle VALUES (5, 'Chevrolet', 2022, 5000, 27000.00);
+
+
+ii.)
+
+UPDATE Vehicle
+SET veh_price = veh_price + 10000
+Where veh_brand='Ford';
+
+
+iii.)
+
+SELECT SUM(veh_price) AS TotalPrice FROM Vehicle;
+
+
+iv.)
+
+CREATE VIEW Vehicle_View AS
+SELECT veh_number, veh_brand, veh_year, veh_mileage, veh_price
+FROM Vehicle;
+
+
+v.)
+
+SELECT * FROM Vehicle
+ORDER BY veh_brand DESC, veh_mileage ASC;
+
+
+vi.)
+
+DELETE FROM Vehicle
+WHERE veh_brand LIKE '_o%';
+
+
+
+vii.)
+
+ALTER TABLE Vehicle
+MODIFY veh_year DATETIME;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

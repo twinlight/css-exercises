@@ -1,0 +1,68 @@
+i.)
+
+CREATE TABLE orders (
+    order_id INT PRIMARY KEY,
+    product_name VARCHAR(50),
+    price DECIMAL(10, 2),
+    quantity INT,
+    order_date DATE,
+    delivery_date DATE
+);
+
+
+
+INSERT INTO orders (order_id, product_name, price, quantity, order_date, delivery_date) VALUES
+(1, 'T-shirt', 25.99, 2, '2023-07-15', '2023-07-25'),
+(2, 'Jeans', 49.95, 1, '2023-07-17', '2023-07-20'),
+(3, 'Shoes', 69.50, 1, '2023-07-20', '2023-07-30'),
+(4, 'Sunglasses', 12.75, 3, '2023-07-22', '2023-07-28'),
+(5, 'Backpack', 34.99, 2, '2023-07-25', '2023-07-29'),
+(6, 'Hat', 19.99, 1, '2024-08-01', '2024-08-03');  -- Record with today's date
+
+
+
+ii.)
+
+SELECT *
+FROM orders
+WHERE order_date = '2023-07-15';
+
+
+
+iii.)
+
+SELECT DATEDIFF(delivery_date, order_date) AS days_to_deliver
+FROM orders
+WHERE product_name = 'Shoes';
+
+
+iv.)
+
+SELECT *
+FROM orders
+WHERE order_date BETWEEN '2023-07-17' AND '2023-07-22';
+
+
+
+v.)
+
+SELECT *
+FROM orders
+WHERE order_date = CURDATE();  -- CURDATE() gets the current date
+
+
+
+vi.)
+
+SELECT AVG(DATEDIFF(delivery_date, order_date)) AS avg_delivery_days
+FROM orders;
+
+
+
+vii.)
+
+
+SELECT product_name
+FROM orders
+ORDER BY quantity DESC
+LIMIT 1;

@@ -1,0 +1,105 @@
+To create a relational database for the Department of Computer Engineering (DOCE) of Pokhara University with at least three relations and maintaining referential integrity constraints, we can define the following tables:
+
+Students
+Courses
+Enrollments
+
+
+1. Students Table
+
+Student_ID (Primary Key)
+First_Name
+Last_Name
+Date_of_Birth
+Enrollment_Year
+
+
+2. Courses Table
+
+Course_ID (Primary Key)
+Course_Name
+Credits
+
+3. Enrollments Table
+
+Student_ID (Foreign Key)
+Course_ID (Foreign Key)
+Enrollment_Date
+
+
+1. Create the Students Table
+
+
+CREATE TABLE Students (
+    Student_ID INT PRIMARY KEY,
+    First_Name VARCHAR(50),
+    Last_Name VARCHAR(50),
+    Date_of_Birth DATE,
+    Enrollment_Year INT
+);
+
+
+2. Create the Courses Table
+
+CREATE TABLE Courses (
+    Course_ID INT PRIMARY KEY,
+    Course_Name VARCHAR(100),
+    Credits INT
+);
+
+
+3. Create the Enrollments Table
+
+
+CREATE TABLE Enrollments (
+    Student_ID INT,
+    Course_ID INT,
+    Enrollment_Date DATE,
+    PRIMARY KEY (Student_ID, Course_ID),
+    FOREIGN KEY (Student_ID) REFERENCES Students(Student_ID),
+    FOREIGN KEY (Course_ID) REFERENCES Courses(Course_ID)
+);
+
+
+
+
+
+
+Schema Diagram
+
+
+
+
++-------------------+
+|    Students       |
++-------------------+
+| Student_ID (PK)   |
+| First_Name        |
+| Last_Name         |
+| Date_of_Birth     |
+| Enrollment_Year   |
++-------------------+
+         |
+         |
+         |   (references)
+         |
+         v
++-------------------+
+|    Enrollments    |
++-------------------+
+| Student_ID (FK)   |
+| Course_ID (FK)    |
+| Enrollment_Date   |
++-------------------+
+         ^
+         |
+         |   (references)
+         |
+         v
++-------------------+
+|    Courses        |
++-------------------+
+| Course_ID (PK)    |
+| Course_Name       |
+| Credits           |
++-------------------+

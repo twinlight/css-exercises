@@ -1,0 +1,82 @@
+
+CREATE TABLE Employee (
+    Empno INT PRIMARY KEY,
+    Name VARCHAR(50),
+    Address VARCHAR(50),
+    Salary DECIMAL(10, 2)
+);
+
+
+i.)
+
+INSERT INTO Employee VALUES (1, 'Ram', 'Kathmandu', 50000);
+INSERT INTO Employee VALUES (2, 'Sita', 'Lalitpur', 60000);
+INSERT INTO Employee VALUES (3, 'Gopal', 'Pokhara', 55000);
+INSERT INTO Employee VALUES (4, 'Sunita', 'Kathmandu', 52000);
+INSERT INTO Employee VALUES (5, 'Hari', 'Lalitpur', 48000);
+
+
+ii.)
+
+UPDATE Employee
+SET Address = 'Pokhara'
+WHERE Name = 'Ram';
+
+
+iii.)
+
+SELECT Address,AVG(Salary) AS Average_Salary
+FROM Employee
+GROUP BY Address;
+
+
+iv.)
+
+SELECT *
+FROM Employee
+WHERE Salary > (SELECT AVG(Salary) FROM Employee);
+
+
+v.)
+
+DELETE FROM Employee
+WHERE Name = 'Hari';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

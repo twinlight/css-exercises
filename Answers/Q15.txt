@@ -1,0 +1,35 @@
+Data Definition Language (DDL) statements are used to define and manage the structure of database objects such as tables, indexes, and views. Here’s a demonstration of common DDL statements including CREATE, ALTER, and DROP with examples.
+
+1. CREATE Statement
+The CREATE statement is used to create new database objects.
+
+Example 1: Create a Table
+
+CREATE TABLE Employees (
+    Employee_ID INT PRIMARY KEY,
+    First_Name VARCHAR(50),
+    Last_Name VARCHAR(50),
+    Department VARCHAR(50),
+    Salary DECIMAL(10, 2),
+    Hire_Date DATE
+);
+
+
+2. ALTER Statement
+The ALTER statement is used to modify the structure of an existing database object.
+
+Example 1: Add a Column
+
+ALTER TABLE Employees
+ADD Email VARCHAR(100);
+
+
+3. DROP Statement
+The DROP statement is used to delete database objects.
+
+Example 1: Drop a Table
+
+DROP TABLE Employees;
+
+
+These DDL statements allow you to define and manage the structure of your database effectively, ensuring that your schema fits the requirements of your application.

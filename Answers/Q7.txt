@@ -1,0 +1,79 @@
+i.)
+
+CREATE TABLE Department (
+    Depart_no INT PRIMARY KEY,
+    dept_name VARCHAR(50),
+    floor INT,
+    room INT
+);
+
+CREATE TABLE Doctor (
+    Name VARCHAR(50) PRIMARY KEY,
+    age INT,
+    address VARCHAR(100),
+);
+
+CREATE TABLE Works (
+    Name VARCHAR(50),
+    Depart_no INT,
+    salary DECIMAL(10, 2),
+    PRIMARY KEY (Name, Depart_no),
+    FOREIGN KEY (Name) REFERENCES Doctor(Name),
+    FOREIGN KEY (Depart_no) REFERENCES Department(Depart_no)
+);
+
+
+ii.)
+
+INSERT INTO Department (Depart_no, dept_name, floor, room) VALUES
+(1, 'Cardiology', 3, 305),
+(2, 'Neurology', 4, 402),
+(3, 'Orthopedics', 2, 205);
+
+INSERT INTO Doctor (Name, age, address) VALUES
+('Dr. Smith', 45, '123 Main St'),
+('Dr. Johnson', 50, '456 Oak St'),
+('Dr. Williams', 38, '789 Pine St');
+
+INSERT INTO Works (Name, Depart_no, salary) VALUES
+('Dr. Smith', 1, 120000.00),
+('Dr. Johnson', 2, 115000.00),
+('Dr. Williams', 3, 110000.00);
+
+
+
+
+iii.)
+
+The schema diagram will illustrate the three tables 'Doctor', 'Works', and 'Department', with 'Works' having foreign key constraints referencing Doctor and Department.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

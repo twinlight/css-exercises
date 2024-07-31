@@ -1,0 +1,42 @@
+i.)
+
+CREATE DATABASE hotel;
+USE hotel;
+
+CREATE TABLE Hotel_details (
+    Hotel_id INT PRIMARY KEY,
+    Hotel_name VARCHAR(50),
+    Estb_year YEAR,
+    Hotel_star VARCHAR(10),
+    Hotel_worth DECIMAL(10, 2)
+);
+
+
+ii.)
+
+INSERT INTO Hotel_details (Hotel_id, Hotel_name, Estb_year, Hotel_star, Hotel_worth) VALUES
+(1, 'Hyatt', 2047, 'Five', 15000000.00),
+(2, 'Hotel ktm', 2043, 'Three', 5000000.00),
+(3, 'Fullbari', 2058, 'Five', 20000000.00),
+(4, 'Yak and Yeti', 2052, 'Four', 11000000.00),
+(5, 'Hotel chitwan', 2055, 'Three', 7000000.00);
+
+
+iii.)
+
+CREATE VIEW price AS
+SELECT Hotel_name, Hotel_worth
+FROM Hotel_details;
+
+
+iv.)
+UPDATE Hotel_details
+SET Hotel_star = 'Four'
+WHERE Hotel_name = 'Hotel chitwan';
+
+
+v.)
+
+DELETE FROM Hotel_details
+WHERE Hotel_worth > 9000000.00;
+

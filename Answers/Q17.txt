@@ -1,0 +1,97 @@
+1. Create Tables and Insert Rows
+
+Create Employees Table:
+
+CREATE TABLE Employees (
+    Employee_ID INT PRIMARY KEY,
+    First_Name VARCHAR(50),
+    Last_Name VARCHAR(50),
+    Department_ID INT
+);
+
+Create Departments Table:
+
+CREATE TABLE Departments (
+    Department_ID INT PRIMARY KEY,
+    Department_Name VARCHAR(50)
+);
+
+
+Insert Rows into Employees:
+
+INSERT INTO Employees (Employee_ID, First_Name, Last_Name, Department_ID) VALUES
+(1, 'John', 'Doe', 101),
+(2, 'Jane', 'Smith', 102),
+(3, 'Alice', 'Johnson', 103),
+(4, 'Bob', 'Brown', NULL);
+
+
+Insert Rows into Departments:
+
+INSERT INTO Departments (Department_ID, Department_Name) VALUES
+(101, 'HR'),
+(102, 'IT'),
+(103, 'Marketing'),
+(104, 'Finance');
+
+
+
+2. Perform Different Joins
+
+a. Inner Join
+
+An inner join returns rows when there is a match in both tables.
+
+SELECT e.Employee_ID, e.First_Name, e.Last_Name, d.Department_Name
+FROM Employees e
+INNER JOIN Departments d
+ON e.Department_ID = d.Department_ID;
+
+
+b. Outer Join
+
+Outer joins return rows when there is a match in one of the tables. There are three types: LEFT, RIGHT, and FULL OUTER.
+
+Left Outer Join (Returns all rows from the left table and matched rows from the right table):
+
+SELECT e.Employee_ID, e.First_Name, e.Last_Name, d.Department_Name
+FROM Employees e
+LEFT JOIN Departments d
+ON e.Department_ID = d.Department_ID;
+
+
+Right Outer Join (Returns all rows from the right table and matched rows from the left table):
+
+SELECT e.Employee_ID, e.First_Name, e.Last_Name, d.Department_Name
+FROM Employees e
+RIGHT JOIN Departments d
+ON e.Department_ID = d.Department_ID;
+
+
+Full Outer Join (Returns rows when there is a match in one of the tables):
+
+SELECT e.Employee_ID, e.First_Name, e.Last_Name, d.Department_Name
+FROM Employees e
+FULL OUTER JOIN Departments d
+ON e.Department_ID = d.Department_ID;
+
+
+c. Natural Join
+
+A natural join automatically joins tables based on columns with the same name and compatible data types. Note that you need to ensure that the columns being joined have the same name.
+
+SELECT e.Employee_ID, e.First_Name, e.Last_Name, d.Department_Name
+FROM Employees e
+NATURAL JOIN Departments d;
+
+
+
+d. Cross Join
+
+A cross join returns the Cartesian product of the two tables, meaning every row of the first table is combined with every row of the second table.
+
+SELECT e.Employee_ID, e.First_Name, e.Last_Name, d.Department_Name
+FROM Employees e
+CROSS JOIN Departments d;
+
+

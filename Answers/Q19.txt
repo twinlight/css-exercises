@@ -1,0 +1,47 @@
+Triggers in SQL are used to automatically execute a specified action in response to certain events on a table, such as INSERT, UPDATE, or DELETE.
+
+1. Create a Trigger
+
+Example: Create a Trigger to Log Changes
+
+Let's create a trigger that logs changes to the Employees table into a EmployeeLog table whenever an employee's record is updated.
+
+Create the EmployeeLog Table:
+
+
+CREATE TABLE EmployeeLog (
+    Log_ID INT AUTO_INCREMENT PRIMARY KEY,
+    Employee_ID INT,
+    Old_Salary DECIMAL(10, 2),
+    New_Salary DECIMAL(10, 2),
+    Change_Date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+Create the Trigger:
+
+DELIMITER //
+
+CREATE TRIGGER AfterEmployeeUpdate
+AFTER UPDATE ON Employees
+FOR EACH ROW
+BEGIN
+    INSERT INTO EmployeeLog (Employee_ID, Old_Salary, New_Salary)
+    VALUES (OLD.Employee_ID, OLD.Salary, NEW.Salary);
+END //
+
+DELIMITER ;
+
+
+3. Test the Trigger
+
+Update an Employee's Salary:
+
+
+UPDATE Employees
+SET Salary = 55000
+WHERE Employee_ID = 1;
+
+
+Check the EmployeeLog Table:
+
+SELECT * FROM EmployeeLog;
